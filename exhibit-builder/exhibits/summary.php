@@ -101,11 +101,13 @@
                         cul_insert_angle_brackets(metadata($exhibitPage, 'title')) .
                         '&raquo;</a></h3>';
                 echo $html;
-                if (exhibit_builder_page_text(1)) {
-		  //                  $pageText = '<p>' . exhibit_builder_page_text(1) . '</p>';
-                  $pageText = exhibit_builder_page_text(1);
-                  echo $pageText;
-                }
+                // fcd1, 01/08/15:
+                // function exhibit_builder_page_text(), available in plugin Exhibit Builder version 2.1.1,
+                // has been removed from Exhibit Builder 3.1.1, which is the version bundled with Omeka 2.2.2 .
+                // Exhibit Builder 3.1.1 uses content blocks.
+                $pageBlocks = $exhibitPage->getPageBlocks();
+                $textBlock = $pageBlocks[0];
+                echo $textBlock->text;
               ?>
             <?php endforeach; ?>
           <?php endif; ?>
