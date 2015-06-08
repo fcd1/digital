@@ -59,7 +59,10 @@
         </span>
         &nbsp;
         <?php
+	$exhibit = get_current_record('exhibit', false);
+        if ($exhibit) {
           $title = exhibit_builder_link_to_exhibit();
           echo $title;
+        }
         ?>
       </h1>
