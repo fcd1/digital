@@ -1,8 +1,17 @@
     </div><!--end id="wrap"-->
     <p class="footer11px">
+    <?php
+    $title = metadata('exhibit','title');
+    // strcmp returns 0 if strings are equal
+if ( !strcmp($title,"Comics in the Curriculum") ):
+    ?>
+  <p class="footer11px">Digital Humanities Center  / 305 Butler Library  / 535 West 114th St. / New York, NY 10027 / (212) 854-7547 / <a href="mailto:dhc@libraries.cul.columbia.edu">dhc@libraries.cul.columbia.edu</a>
+     </p>
+<?php else: ?>
+     <p class="footer11px">
       Columbia University Libraries Digital Program Division
     </p>
-
+	<?php endif; ?>
     <div class="copyright-footer"> 
       <?php echo cul_copyright_information();?>
     </div>
