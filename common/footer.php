@@ -1,7 +1,14 @@
     </div><!--end id="wrap"-->
     <p class="footer11px">
     <?php
-    $title = metadata('exhibit','title');
+    $exhibit = get_current_record('exhibit', false);
+    if ($exhibit) {
+      $title = metadata('exhibit','title');
+    }
+    else {
+      // if exhibit is undefined in this context, just set $title to empty string
+      $title = '';
+    }
     // strcmp returns 0 if strings are equal
 if ( !strcmp($title,"Comics in the Curriculum") ):
     ?>
